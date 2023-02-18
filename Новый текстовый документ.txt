@@ -1,0 +1,50 @@
+CREATE TABLE countries (
+state_id INT NOT NULL,
+state_name VARCHAR NOT NULL,
+region_id INT NOT NULL,
+PRIMARY KEY (state_id)
+);
+
+
+4)
+
+
+CREATE TABLE dup_countries as (select * from countries);
+
+
+5)
+
+
+UPDATE countries SET region_id=NULL;
+
+
+6)
+
+CREATE TABLE jobs (
+job_id INT NOT NULL,
+job_title VARCHAR NOT NULL,
+min_salary INT NOT NULL,
+max_salary INT NOT NULL
+);
+
+SELECT max_salary 
+FROM jobs Where max_salary<25000
+
+7)
+
+
+
+
+INSERT INTO prod_img(prod_id,prod_url,product_desc)
+VALUES ('BNBG03','http://dummyimage.com/151x100.png/cc0000/ffffff','Bypass Right Anterior Chamber to Sclera, Percutaneous Approach');
+INSERT INTO prod_img(prod_id,prod_url,product_desc)
+VALUES ('BR01','http://dummyimage.com/214x100.png/5fa2dd/ffffff','Release Right Hip Bursa and Ligament, Open Approach');
+INSERT INTO prod_img(prod_id,prod_url,product_desc)
+VALUES ('BR02','http://dummyimage.com/221x100.png/cc0000/ffffff','Bypass Left Femoral Vein to Lower Vein with Autologous Arterial Tissue, Percutaneous Endoscopic Approach');
+INSERT INTO prod_img(prod_id,prod_url,product_desc)
+VALUES ('BR03','http://dummyimage.com/112x100.png/ff4444/ffffff','Extraction of Left Pleura, Open Approach');
+
+
+
+
+

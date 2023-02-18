@@ -1,0 +1,17 @@
+SELECT orders.order_id,customers.customer_id,customers.company_name,customers.contact_name
+FROM customers
+INNER JOIN orders ON customers.customer_id=orders.customer_id
+WHERE contact_name LIKE 'V%'
+
+SELECT orders.order_id,orders.customer_id,CONCAT(employees.last_name,' ',employees.first_name) as lf
+FROM orders
+LEFT JOIN employees ON orders.employee_id=employees.employee_id
+WHERE EXTRACT(year FROM age(current_date,birth_date))>25
+
+SELECT customer_id, ship_country, total_sum from orders
+JOIN (SELECT order_id, SUM(unit_price * quantity - unit_price * discount) as total_sum from order_details GROUP BY order_id)
+AS res
+USING (order_id)
+WHERE order_date>'01-09-1997' AND ship_country = 'Brazil'
+GROUP BY customer_id, ship_country, total_sum
+ORDER BY total_sum DESC limit 3
